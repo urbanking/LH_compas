@@ -1,113 +1,84 @@
-LH COMPAS Contest 
-Project Title
-Strategies to Minimize Vacancy Rates in Knowledge Industry Centers in Seongnam
+# LH COMPAS Contest - 장려상(3rd prize)
 
-Background
-Due to prolonged stagnation in the profitable real estate market and oversupply of knowledge industry centers in the Seoul Metropolitan Area (with occupancy rates falling below 80%), vacancy in industrial complexes has emerged as a serious issue.
+## Project Title
+**Strategies to Minimize Vacancy Rates in Knowledge Industry Centers in Seongnam**
 
-Despite this, there is a lack of reliable indicators to explain or predict vacancy rates, making it difficult to establish effective policy responses or development strategies.
+##  Background
+Due to long-term stagnation in the profitable real estate market, oversupply of knowledge industry centers (especially in the Seoul Metropolitan Area), and worsening business conditions for SMEs, the vacancy issue in industrial complexes has emerged as a serious problem.
 
-Objective
-To identify key factors influencing vacancy rates in Seongnam's knowledge industry centers and derive actionable insights.
+However, a lack of concrete indicators explaining the vacancy rates has hindered the development of persuasive solutions.
 
-To apply the derived indicators and models to assess the feasibility of a planned knowledge industry complex in Gyeyang District, Incheon (part of the 3rd New Town project).
+##  Objective
+- Build a composite indicator that explains the vacancy rate using various regional datasets for knowledge industry centers in Seongnam.
+- Apply the insights to a site in **Gyeyang District, Incheon**, part of the 3rd New Town, to evaluate its location feasibility.
+- Provide practical implications for minimizing vacancy rates in upcoming developments.
 
-Ultimately, to support policy-making and planning for future industrial center developments by providing explainable models and recommendations to reduce vacancy.
+##  Scope
+- **Analysis Target Area:** Seongnam City (Knowledge Industry Centers)
+- **Application Area:** Gyeyang Techno Valley site (Incheon)
 
-Scope
-Analysis Target Area: Seongnam City, including multiple knowledge industry centers.
+---
 
-Application Target Area: Gyeyang Techno Valley site in Incheon.
+##  Methodology
 
-Methodology Overview
-Step 1: Variable Selection
-Based on prior research and domain analysis, variables were categorized into five dimensions:
+### 1. Variable Selection
+Key categories and their representative variables:
 
-Transportation Accessibility
+| Category            | Example Variables                                      |
+|---------------------|--------------------------------------------------------|
+| Transportation      | OD commuting flow, distance to IC, congestion cost     |
+| Market Activity      | Floating population, card sales, store closure rate   |
+| Land Value          | Official land value per grid                          |
+| Population          | Number of residents aged 20–50 within 500m radius     |
+| Industry Center Data | Total rooms, number of tenants, occupancy rate       |
 
-OD (Origin-Destination) commuting flow analysis
+### 2. Tools Used
+- Python (pandas, geopandas, matplotlib, seaborn)
+- QGIS (Buffer analysis, network distance using QNEAT3)
+- Data types: `.csv`, `.shp`, `.geojson`, API (Kakao address geocoding)
 
-Distance to bus stops, subway stations, interchanges (IC)
+### 3. Modeling
+- Regression analysis for identifying key variables affecting vacancy
+- OD Matrix and KDE visualizations for analyzing commuting patterns
+- Spatial clustering to segment demand zones (East vs. West)
 
-Congestion cost and transfer convenience
+---
 
-Commercial Activity (Market Score)
+##  Key Insights
 
-Floating population (by time zone)
+- **Internal commuting dominance:** Over 30% of inflows come from within Seongnam (Jungwon District).
+- **High land value ↔ low vacancy:** Commercially valuable zones showed stronger demand.
+- **Competition intensity matters:** Mixed-industry clusters (3 or more dominant sectors) perform better.
+- **Accessibility matters:** Distance to subway/bus stops and ICs correlate with occupancy.
 
-Card sales and purchasing power
+---
 
-Store opening/closure rates
+##  Strategic Recommendations
 
-Land Price (Officially Appraised Land Value)
+### 1. Industry Composition Strategy
+- Select 1–2 anchor industries per center (e.g., IT, biotech)
+- Allocate 40–50% of space to anchors and 30–40% to complementary industries
+- Avoid oversaturation of a single industry
 
-Grid-based analysis using cadastral and transaction data
+### 2. Competition Management
+- Maintain balance in nearby centers (max 3–4 within 1 km)
+- Monitor **competition score**:  
+  `Competition Score = α(NC) + β(SIC) + γ(IMS)`
 
-Demographics (Population)
+  Where:
+  - NC = Nearby Center Ratio  
+  - SIC = Same Industry Count  
+  - IMS = Industry Market Share  
 
-Working-age residential population (20s–50s)
+### 3. Vacancy Monitoring System
+- Track tenant turnover, new inquiries, lease renewals, and rent negotiation trends
 
-Density of potential commuting population within 500m radius
+---
 
-Knowledge Industry Center Features
+##  Team Information
 
-Number of available vs. used units (to estimate vacancy rate)
+**Team Name:** YBIGTA DA  
+**Members:** Han Yeji, Kim Minseo, Moon Chanwoo, Yoo Junsun, Lim Dogeun  
+**Submission Date:** February 2025  
+**Affiliation:** Yonsei University
 
-Industry cluster patterns and competitive saturation
-
-Step 2: Data Processing and Tools
-All spatial and statistical analysis was conducted using Python and QGIS.
-
-Diverse datasets were integrated: spatial (SHP), tabular (CSV), and geocoded APIs.
-
-Preprocessing included geospatial joins, buffer analysis, KDE plots, and clustering.
-
-Step 3: Modeling
-Regression analysis was performed to identify the relationship between variables and vacancy rates.
-
-Clustering was used to detect demand concentration (East vs. West Seongnam) and evaluate feasibility for new centers.
-
-Key Findings
-High Dependency on Internal Commuting
-
-Over 30% of commuting inflow during peak hours came from within Seongnam's Jungwon District.
-
-Accessibility from Seoul's southern districts (e.g., Gangnam, Songpa) was relatively low due to long travel times.
-
-Market and Land Value Correlation
-
-Areas with high market scores and land values tended to exhibit lower vacancy.
-
-Industry Competition Intensity
-
-Centers with high industry overlap (e.g., cosmetics, software, semiconductors) showed higher competition intensity and lower vacancy.
-
-A balanced mix of 3+ industries per center correlated with better performance.
-
-Feasibility Assessment of Gyeyang Techno Valley
-
-Transportation, market activity, and population indicators were mapped and scored.
-
-Recommendations were made regarding optimal layout and industry composition.
-
-Policy Recommendations
-Optimize Industry Composition
-
-Assign 1-2 anchor industries per center
-
-Allocate 40–50% floor space to anchors, 30–40% to complementary sectors
-
-Manage Competition Intensity
-
-Limit similar-use centers within 1 km radius
-
-Apply differentiated strategies based on location characteristics
-
-Monitor Vacancy Risk
-
-Track signals such as contract renewals, rent negotiations, and tenant inquiries
-
-Team
-Team Name: YBIGTA DA
-Members: Han Yeji, Kim Minseo, Moon Chanwoo, Yoo Junsun, Lim Dogeun
-Date: February 2025
